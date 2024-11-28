@@ -9,10 +9,13 @@ public class Ball : MonoBehaviour
     private bool is8Ball = false;
     private bool isCueBall = false;
 
+    Rigidbody rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -20,6 +23,17 @@ public class Ball : MonoBehaviour
     {
         
     }
+
+    private void FixedUpdate(){
+
+        //Makes ball not move in vertical direction,  I'll want to get rid of this if I'm adding ramps and shit
+        if(rb.velocity.y > 0){
+            Vector3 newVelocity = rb.velocity;
+            newVelocity.y = 0f;
+            rb.velocity = newVelocity;
+        }
+    }
+
 
     public bool IsBallRed(){
         return isRed;
