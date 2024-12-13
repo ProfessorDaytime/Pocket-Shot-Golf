@@ -74,7 +74,7 @@ public class GameSetup : MonoBehaviour
                 if(i == 2 && j == 1){
                     PlaceEightBall(currentPosition);
                 } 
-                //check if rand and blue balls are remaining
+                //check if red and blue balls are remaining
                 else if(redBallsRemaining > 0 && blueBallsRemaining > 0){
                     rand = Random.Range(0,2);
                     if(rand == 0){
