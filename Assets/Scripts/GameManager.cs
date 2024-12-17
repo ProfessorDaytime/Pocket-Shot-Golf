@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
             bool allStopped = true;
             foreach (GameObject ball in GameObject.FindGameObjectsWithTag("Ball")){
                 if(ball.GetComponent<Rigidbody>().velocity.magnitude >= movementThreshold){
-                    Debug.Log(ball.GetComponent<Rigidbody>().velocity.magnitude);
+                    //Debug.Log(ball.GetComponent<Rigidbody>().velocity.magnitude);
                     allStopped = false;
                     break;
                 }
@@ -317,6 +317,7 @@ public class GameManager : MonoBehaviour
             if(CheckBall(other.gameObject.GetComponent<Ball>())){
                 Destroy(other.gameObject);
             } else{
+                // Reset the ball's position if not pocketed
                 other.gameObject.transform.position = headPosition.position;
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 other.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;

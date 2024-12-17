@@ -103,14 +103,15 @@ public class CameraController : MonoBehaviour
                 if(savedMousePosition + Input.GetAxis("Mouse Y") <= 0){
                     savedMousePosition += Input.GetAxis("Mouse Y");
 
-                    savedMousePosition = Mathf.Clamp(savedMousePosition, -maxDrawDistance, 0);
-                    // if(savedMousePosition <= maxDrawDistance){
-                    //     savedMousePosition = maxDrawDistance;
-                    // }
+                    // savedMousePosition = Mathf.Clamp(savedMousePosition, -maxDrawDistance, 0);
+                    if(savedMousePosition <= maxDrawDistance){
+                        savedMousePosition = maxDrawDistance;
+                    }
 
                     //Calculate and display power percentage
                     float powerValueNumber = ((savedMousePosition - 0) / (maxDrawDistance - 0) * (100 - 0) + 0);
                     int powerValueInt = Mathf.RoundToInt(powerValueNumber);
+                    Debug.Log(powerValueInt);
                     powerText.text = ("Power: " + powerValueInt.ToString() + "%");
                 }
 
